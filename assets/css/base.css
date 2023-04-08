@@ -1,0 +1,266 @@
+/* ============================== CSS chung ==============================*/
+/* ============================== CSS chung ==============================*/
+/* ============================== CSS chung ==============================*/
+/* ============================== CSS chung ==============================*/
+/* ============================== CSS chung ==============================*/
+/* ============================== CSS chung ==============================*/
+
+ 
+
+/* BASE ================= BASE ================= BASE ================= BASE */
+
+:root{ /* Thanh phan goc trong trang web, root = html*/
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: rgb(238,75,43); 
+    --border-color: #dbdbdb;
+
+    --header-height: 120px;
+    --navbar-height: 43px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+
+
+    --start-gold-color:#FFCE3E;
+}   
+
+
+html{
+    font-size: 65.5%;  /* bang 10px, neu de 100% mac dinh la 16px*/
+    line-height: 1.6rem; /*16px*/
+    font-family: 'Roboto', sans-serif; /*lay api tu gg fonts*/
+    box-sizing: border-box;
+}
+
+*{  /* dau "*" la tat ca cac elemet trong html*/
+    box-sizing: inherit; 
+    /*ke thua tu thang boder-box cua html*/
+}
+
+
+/* RESPONSIVE */
+.grid{ /*khoi grid nay gianh cho cac man hinh co kich thuoc lon hon 1200px*/
+    width: 1200px;
+    max-width: 100%; /*giam kich thich cua khoi grid bang kich thuong man hinh nho hon 1k2px*/
+    margin: 0 auto; /*tu dong canh giua khoi grid nay khi nam trong khoi khac*/
+}
+
+.grid__full-width{ /*su dung grid full khi khong muon su dung grid 1k2px */
+    width: 100%;
+}
+
+.grid__row{ /*cac the nam trong class nay se nam tren cung` 1 hang ngang*/
+    display: flex;
+    flex-wrap: wrap; /* khi qua nhieu ele thi se nhay xuong hang*/
+    margin-left: -5px;
+    margin-right: -5px;
+}
+ 
+
+/*TEST*/
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.667%;
+}
+
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+.grid__column-24{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+
+/* Amination */
+@keyframes fadeIn{ /*text vao cua hangtren ....*/
+    from{
+        opacity: 0.1;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+@keyframes growth {/* MODAL BODY*/
+    from{
+        transform: scale(var( --growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* MODAL POP UP */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    display: flex;
+     
+}
+
+.modal__overplay{/* BG den mo` */
+    position: absolute;
+    width: 100%;
+    height: 100%;   
+    background-color: rgba(0, 0, 0, .4);
+    animation: fadeIn linear .2s;
+}
+
+.modal__body{
+    --growth-from: 0.7;
+    --growth-to: 1;
+    /* width: 300px;
+    height: 300px; */
+    /* background-color: var(--white-color); */
+    margin: auto;
+    position: relative;
+    z-index: 1; /*cho lop body nam tren overplay*/
+    animation: growth linear 0.1s;
+}
+
+
+
+/* BUTTON */
+.btn{
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem; 
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color); 
+    display: inline-flex;
+    justify-content: center;/*canh truc ngang*/
+    align-items: center; /*canh truc doc*/
+    line-height: 1.5rem;
+    background-color: var(--white-color);
+}
+
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}
+
+.btn.btn--disabled{ /*tat button*/
+    cursor: default;
+    filter: brightness(65%);
+}
+
+
+/* Selection */
+.select-input{
+    position: relative;
+    padding: 0 12px;
+    height: 34px;
+    border-radius: 2px;
+    min-width: 120px;
+    background-color: var(--white-color);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px; 
+    z-index: 1;
+}
+
+.select-input__label{
+    font-size: 1.4rem;
+}
+
+.select-input__icon{
+    font-size: 1.4rem;
+    color: rgb(131,131,131); 
+    position: relative;
+    
+    
+}
+
+.select-input__list{ 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:25px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 10px 16px; 
+    list-style: none;
+    display: none;
+    animation: fadeIn linear .2s;
+}
+
+.select-input__link{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+ 
+.select-input__link:hover{
+    color: var(--primary-color);
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+ 
+
+/* HOME PAGIANATION */
+.pagination{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item{
+    margin:  0 12px;
+}
+
+
+.pagination-item--act .pagination-item__link{  
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.pagination-item--act .pagination-item__link:hover{
+    opacity: 0.8;
+}
+
+.pagination-item__link{
+    --height: 30px;
+    display: block;
+    text-decoration: none;
+    color: #939393;
+    font-size: 1.8rem;
+    min-width: 40px;
+    height: var(--height); 
+    line-height: var(--height); 
+    text-align: center;
+    border-radius: 2px;
+    font-weight: 300;
+}
+ 
